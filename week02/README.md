@@ -11,7 +11,7 @@ bash -n ../guestbook/reconcile.sh; bash ../guestbook/reconcile.sh
 ```
 
 ## 실제 수행 결과
-복구 스크립트에 변수, 명령 치환, 조건문, 종료 코드를 적용했다. Qwen 웹 실습은 별도 검증이 필요하다.
+복구 스크립트에 변수, 명령 치환, 조건문, 종료 코드를 적용했다. Ollama 컨테이너에 qwen3:0.6b를 내려받아 실제 응답 "안녕하세요!"를 확인했다. 직접 구현한 chat.py와 start.sh를 실행하고 GET 및 질문 POST 응답을 검증했다. 교안의 Ubuntu 직접 설치 대신 Ubuntu 내 Docker로 Ollama를 실행했다.
 
 [실행 증거](../evidence/recovery.json)
 
@@ -20,3 +20,5 @@ bash -n ../guestbook/reconcile.sh; bash ../guestbook/reconcile.sh
 
 ## 프로젝트 연결
 [방명록 코드](../guestbook) · [과제 Issue](https://github.com/Lime010/devops/issues/1)
+
+[Qwen API 결과](../evidence/qwen.json) · [웹 결과](../evidence/qwen-web.txt)
