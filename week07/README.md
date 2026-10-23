@@ -1,6 +1,6 @@
 # 07. Docker Compose
 
-자료: 교안 07 / 수업 7주차. 폴더 번호는 교안 번호 기준이다.
+자료: 교안 07 / 수업 7주차. 폴더는 수업 주차 기준이다.
 
 ## 학습 목표와 핵심 개념
 Compose는 여러 서비스를 하나의 YAML로 정의한다. 같은 네트워크에서 서비스 이름을 DNS로 사용한다. healthcheck와 depends_on의 service_healthy로 준비 상태를 확인한다. .env는 비밀값을 분리하지만 암호화하지 않으므로 Git에서 제외한다. 볼륨은 컨테이너와 별도로 데이터를 보존한다.
@@ -39,3 +39,32 @@ cd ../guestbook; docker compose up -d --scale web=3 --wait; docker compose ps
 단점: 감시 주기만큼 복구가 늦어질 수 있고 의도적인 축소도 되돌릴 수 있다.
 한계: running이지만 unhealthy인 상태를 이 스크립트는 복구하지 않는다. 호스트·Docker 데몬이 고장나면 작동하지 않는다. Redis와 Nginx도 단일 장애점이며 데이터 백업·다중 서버 복구는 별도 설계가 필요하다.
 대안: 여러 노드의 오케스트레이터로 원하는 복제 수를 관리하되 DB 복제, 영속 스토리지, 외부 진입점의 고가용성까지 구성해야 한다. 단일 PC 실습만으로 서버 장애 복구를 입증할 수 없다.
+
+## 원본 교안으로 재검증한 자동 복구
+원본 ZIP의 /readyz로 준비 상태를 확인하고 /healthz로 응답 호스트를 수집했다.
+이전 5.31초는 재현 구현에서 단발 복구한 과거 기록이다. 아래 원본 기반 실험과 구분한다.
+
+```bash
+cd guestbook
+INTERVAL=5 ./keep_web3.sh
+# 별도 터미널
+docker stop guestbook-web-2
+docker compose ps
+```
+
+| 검증 항목 | 결과 |
+|---|---|
+| 정상 상태 | web 3개, 12/12 HTTP 200 |
+| web-2 stop 직후 | running 2개, 12/12 HTTP 200 |
+| 감시자 | 20:54:38 KST에 running=2 감지 후 자동 복구 |
+| web 3개 관측 | stop 완료 후 약 7.2초, 준비 완료 시간과는 구분 |
+| 복구 후 | 12/12 HTTP 200, 호스트 3개 |
+| 감시자 종료 후 다시 stop | 7초 뒤에도 2개 유지 |
+
+[감시 로그](../evidence/original-watcher.log) · [원본 수치](../evidence/original-recovery.json)
+
+### 제안 방법 평가
+장점: 셸과 Compose만 사용하며, 출력의 Up 문자열 대신 running 필터와 ID 목록으로 개수를 센다. 많거나 적으면 3개로 맞춘다. flock으로 중복 복구를 막고 .maintenance로 점검을 허용한다.
+단점: 5초 점검 주기와 실제 시작 시간이 더해진다. 수동 축소 의도와 충돌할 수 있다. Docker 명령 실패 시 다음 주기에 재시도하지만 근본 원인은 해결하지 않는다.
+한계: running 상태인 unhealthy 컨테이너는 탐지하지 않는다. 감시자 종료, 호스트 장애, Redis/Nginx 장애는 해결하지 못한다. 재부팅 후 자동 실행 서비스는 등록하지 않았고 실험 종료 시 감시자를 종료했다.
+개선: health 상태를 별도 검사하고 제한된 재시도·알림·systemd 감시를 추가한다. 다중 노드 장애 대응은 오케스트레이터와 DB/스토리지 고가용성 설계가 필요하다.

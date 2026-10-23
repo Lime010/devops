@@ -1,3 +1,14 @@
+__pycache__/
+*.pyc
+.git/
+.github/
+k8s/
+venv/
+.venv/
+README.md
+compose.yaml
 .env
-.git
-__pycache__
+
+.env
+.env.*
+!.env.example

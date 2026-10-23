@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8">
+<title>Qwen Web</title>
+<style>
+body { max-width: 680px; margin: 50px auto; padding: 20px;
+        font-family: sans-serif; line-height: 1.7; }
+textarea { box-sizing: border-box; width: 100%; padding: 12px; }
+button { margin-top: 12px; padding: 10px 20px; cursor: pointer; }
+pre { white-space: pre-wrap; background: #f1f5f9; padding: 20px; }
+</style>
+<h1>짧은 대화</h1>
+<p>모델: <strong>qwen3:0.6b</strong></p>
+<form method="post" action="/">
+<label for="question">짧은 질문을 입력하세요.</label>
+<textarea id="question" name="question" rows="3" maxlength="300" required>안녕! 한 문장으로 인사해줘.</textarea>
+<button type="submit">질문 보내기</button>
+</form>
+<p>첫 응답은 느릴 수 있습니다. 답변이 나올 때까지 기다려 주세요.</p>
+<h2>답변</h2><pre>안녕하세요!</pre>
+</html>
