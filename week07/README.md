@@ -33,7 +33,7 @@ cd ../guestbook; docker compose up -d --scale web=3 --wait; docker compose ps
 ## 48페이지 호기심 문제 해결
 `docker stop`한 컨테이너는 unless-stopped로 자동 복구되지 않았다. 요청 처리와 원하는 개수 유지는 서로 다른 문제다.
 `reconcile.sh`는 실행 중인 web 개수가 3이 아니면 compose up으로 다시 맞춘다. flock으로 중복 실행을 막고 .maintenance가 있으면 건너뛴다.
-주기 실행은 systemd timer 또는 cron에 등록할 수 있다. 현재 5.31초는 단발 실행 측정이며 주기 감시가 설치된 상태는 아니다.
+이전 단계의 5.31초는 단발 실행 측정이다. 이후 keep_web3.sh를 추가하여 아래 원본 실험에서 주기 감시를 검증했다.
 
 장점: 수업의 셸과 Compose만으로 구현 가능하고 원하는 개수를 쉽게 확인한다.
 단점: 감시 주기만큼 복구가 늦어질 수 있고 의도적인 축소도 되돌릴 수 있다.
