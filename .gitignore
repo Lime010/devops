@@ -1,0 +1,6 @@
+.env
+__pycache__/
+.venv/
+*.pid
+week04/backups/
+week04/restore-check/
