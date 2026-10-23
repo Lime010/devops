@@ -1,22 +1,27 @@
-# 03. 자동화와 협업
+# 3주차. 셸 스크립팅
 
-자료: 교안 03 / 수업 4주차. 폴더 번호는 교안 번호 기준이다.
+자료: 교안 02 / 수업 3주차. 수업 주차 기준으로 정리했다.
 
 ## 학습 목표와 핵심 개념
-grep은 텍스트를 검색하고 find는 파일을 검색한다. 파이프는 앞 명령의 출력을 다음 명령의 입력으로 연결한다. 프로그램은 저장된 코드이고 프로세스는 실행 중인 인스턴스다. tar로 백업하고 diff로 복원본을 검증한다.
+셔뱅은 스크립트를 실행할 인터프리터를 지정한다. $1은 첫 인자, $#은 인자 수, $?는 직전 종료 코드다. 경로와 변수는 따옴표로 감싸 공백을 안전하게 다룬다. 조건문과 반복문으로 반복 작업을 자동화한다.
 
 ## 실행 방법
 ```bash
-bash ../week04/backup.sh test; grep -c ERROR ../week04/test/server.log
+bash -n ../guestbook/reconcile.sh; bash ../guestbook/reconcile.sh
 ```
 
 ## 실제 수행 결과
-예제 로그에서 ERROR 2개를 확인했다. tar 백업을 복원하고 diff 종료 코드 0으로 원본 일치를 검증했다. Issue #1을 생성해 작업 범위를 기록했다.
+복구 스크립트에 변수, 명령 치환, 조건문, 종료 코드를 적용했다. Ollama 컨테이너에 qwen3:0.6b를 내려받아 실제 응답 "안녕하세요!"를 확인했다. 제공받은 원본 chat.py와 start.sh를 실행하고 GET 및 질문 POST 응답을 검증했다. 교안의 Ubuntu 직접 설치 대신 Ubuntu 내 Docker로 Ollama를 실행했다.
 
-[실행 증거](../evidence/basic-labs.txt)
+[실행 증거](../evidence/recovery.json)
 
 ## 문제 해결 및 배운 점
 환경 설치 여부와 서비스 준비 상태를 먼저 확인해야 한다. 명령 성공과 실제 HTTP 응답 성공은 별도로 검증한다. 실행하지 않은 항목은 완료로 표시하지 않는다.
 
 ## 프로젝트 연결
 [방명록 코드](../guestbook) · [과제 Issue](https://github.com/Lime010/devops/issues/1)
+
+[Qwen API 결과](../evidence/qwen.json) · [웹 결과](../evidence/qwen-web.txt)
+
+## 원본 교안 검증
+사용자가 제공한 chat.py를 그대로 적용했다. POST 필드는 question이며 원본으로 HTTP 200을 확인했다. [응답 HTML](../evidence/original-qwen.html)

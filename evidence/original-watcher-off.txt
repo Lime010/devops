@@ -1,0 +1,6 @@
+NAME                IMAGE            COMMAND                  SERVICE   CREATED          STATUS                       PORTS
+guestbook-nginx-1   nginx:alpine     "/docker-entrypoint.…"   nginx     13 minutes ago   Up 13 minutes                127.0.0.1:8080->80/tcp
+guestbook-redis-1   redis:7-alpine   "docker-entrypoint.s…"   redis     2 minutes ago    Up 2 minutes (healthy)       6379/tcp
+guestbook-web-1     guestbook-web    "python app.py"          web       2 minutes ago    Up 2 minutes (healthy)       5000/tcp
+guestbook-web-2     guestbook-web    "python app.py"          web       2 minutes ago    Exited (137) 8 seconds ago
+guestbook-web-3     guestbook-web    "python app.py"          web       2 minutes ago    Up 2 minutes (healthy)       5000/tcp
