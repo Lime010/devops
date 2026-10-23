@@ -1,6 +1,0 @@
-{
-  "before": true,
-  "after_web_restart": true,
-  "after_down_up": true,
-  "after_down_v_up": false
-}

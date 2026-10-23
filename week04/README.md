@@ -10,18 +10,6 @@ grep은 텍스트를 검색하고 find는 파일을 검색한다. 파이프는 �
 bash ./backup.sh test; grep -c ERROR ./test/server.log
 ```
 
-## 실제 수행 결과
-예제 로그에서 ERROR 2개를 확인했다. tar 백업을 복원하고 diff 종료 코드 0으로 원본 일치를 검증했다. Issue #1을 생성해 작업 범위를 기록했다.
-
-[실행 증거](../evidence/basic-labs.txt)
-
-## 문제 해결 및 배운 점
-환경 설치 여부와 서비스 준비 상태를 먼저 확인해야 한다. 명령 성공과 실제 HTTP 응답 성공은 별도로 검증한다. 실행하지 않은 항목은 완료로 표시하지 않는다.
-
-## 프로젝트 연결
-[방명록 코드](../guestbook) · [과제 Issue](https://github.com/Lime010/devops/issues/1)
-
-
 ## 교안 04: 네트워크
 
 자료: 교안 04 / 수업 4주차. 폴더는 수업 주차 기준이다.
@@ -33,14 +21,3 @@ IP는 네트워크 주소이고 포트는 서비스를 구분한다. DNS는 이�
 ```bash
 ip addr; ss -ltn; curl -I http://127.0.0.1:8080
 ```
-
-## 실제 수행 결과
-Python HTTP 서버를 18080에 실행해 HTTP 200을 확인했다. 같은 주소와 포트를 다시 바인딩하여 Address already in use 오류를 재현했다. 실습 서버는 종료했다.
-
-[실행 증거](../evidence/network.txt)
-
-## 문제 해결 및 배운 점
-환경 설치 여부와 서비스 준비 상태를 먼저 확인해야 한다. 명령 성공과 실제 HTTP 응답 성공은 별도로 검증한다. 실행하지 않은 항목은 완료로 표시하지 않는다.
-
-## 프로젝트 연결
-[방명록 코드](../guestbook) · [과제 Issue](https://github.com/Lime010/devops/issues/1)

@@ -24,15 +24,3 @@ cp .env.example .env
 docker compose up -d --build --scale web=3 --wait
 ```
 http://localhost:8080 에서 확인한다.
-
-## 자료와 증거
-guestbook/과 week03/qwen-web/chat.py는 사용자가 제공한 교안 원본으로 교체했다.
-이전 재현 구현은 Git 이력에 남아 있다. 원본 교체 후 결과는 evidence/original-*에서 확인한다.
-보고서 구성 참고: https://github.com/OMORI-Aubrey/DevOps
-타인의 실행 결과와 개인정보는 이 저장소의 증거로 사용하지 않는다.
-
-## 최종 보고서
-
-[중간고사 대체과제 PPT (22장)](reports/DevOps_midterm_202507076_JoSeobeen.pptx)
-
-[보고서 내용과 검증 범위](reports/README.md)
