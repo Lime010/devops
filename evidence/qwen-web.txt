@@ -1,0 +1,2 @@
+GET status=200
+POST result=<meta charset="utf-8"><pre>안녕하세요!</pre><a href="/">돌아가기</a>

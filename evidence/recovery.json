@@ -1,0 +1,234 @@
+{
+  "before": [
+    {
+      "code": 200,
+      "host": "f49aabbfb501",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "8c875014815c",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "f49aabbfb501",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "f49aabbfb501",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "8c875014815c",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "8c875014815c",
+      "status": "ok"
+    }
+  ],
+  "after_stop": [
+    {
+      "code": 200,
+      "host": "8c875014815c",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "8c875014815c",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "8c875014815c",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "8c875014815c",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "8c875014815c",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "8c875014815c",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "8c875014815c",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "8c875014815c",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "8c875014815c",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "8c875014815c",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    }
+  ],
+  "running_after_stop": [
+    "8c875014815cb407eac905da216a91a6696e54b94f3c9feef479ff32d8634015",
+    "71c5aa92eca52940a6261625e2bfc18632f5f5fe97871d2875bc178a7e8503ad"
+  ],
+  "recovery_log": "2026-10-23T20:39:24+09:00 running=2 desired=3\n",
+  "recovery_seconds": 5.31,
+  "after_recovery": [
+    {
+      "code": 200,
+      "host": "8c875014815c",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "f49aabbfb501",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "f49aabbfb501",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "f49aabbfb501",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "8c875014815c",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "71c5aa92eca5",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "8c875014815c",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "f49aabbfb501",
+      "status": "ok"
+    },
+    {
+      "code": 200,
+      "host": "f49aabbfb501",
+      "status": "ok"
+    }
+  ]
+}
